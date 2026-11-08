@@ -13,7 +13,6 @@ import KeychainCanvas from '@/components/KeychainCanvas'
 // The sidebar pulls in the full radix/shadcn control kit; keep it out of the
 // critical path so first paint is faster.
 const Controls = lazy(() => import('@/components/Controls'))
-import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { exportSTL } from '@/utils/ExportSTL'
 import {
@@ -367,17 +366,6 @@ export default function App() {
 
         <div className="pointer-events-none absolute inset-0 flex flex-col justify-between gap-4 p-4 sm:p-6">
           <div className="flex items-start justify-between gap-3">
-            <Badge
-              variant="outline"
-              className="gap-1.5 border-border/60 bg-background/75 px-2.5 py-1 text-[10px] uppercase tracking-[0.16em] text-muted-foreground shadow-sm backdrop-blur"
-            >
-              <span className="relative flex size-1.5">
-                <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-70" />
-                <span className="relative inline-flex size-1.5 rounded-full bg-emerald-400" />
-              </span>
-              Live preview
-            </Badge>
-
             <div className="pointer-events-auto flex items-center gap-2">
               <Button
                 variant="outline"

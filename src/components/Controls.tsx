@@ -423,9 +423,6 @@ export default function Controls({
             </p>
           </div>
         </div>
-        <Badge variant="outline" className="font-mono">
-          1.0
-        </Badge>
       </header>
 
       <div className="scrollbar-thin flex min-h-0 flex-1 flex-col gap-3 overflow-y-auto px-4 py-4">
@@ -950,8 +947,8 @@ export default function Controls({
               : 'Export STL'}
         </Button>
 
-        <p className="text-center text-[10px] leading-relaxed text-muted-foreground/80">
-          Built by{' '}
+        <p className="text-center text-[10px] text-muted-foreground/70 leading-none">
+          craft by{' '}
           <a
             href="https://anis-boulila.vercel.app"
             target="_blank"
@@ -960,10 +957,15 @@ export default function Controls({
           >
             anis boulila
           </a>
-          {' · '}
-          anis-boulila.vercel.app
-          {' · '}
-          <span className="font-mono">anisBoulila@proton.me</span>
+          <span className="mx-1.5 text-foreground/30">·</span>
+          <a
+            href="mailto:anisBoulila@proton.me"
+            target="_blank"
+            rel="noreferrer"
+            className="font-mono underline-offset-2 hover:underline"
+          >
+            anisBoulila@proton.me
+          </a>
         </p>
       </footer>
     </div>
