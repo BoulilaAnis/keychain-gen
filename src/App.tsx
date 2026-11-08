@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { Suspense, lazy, useCallback, useEffect, useRef, useState } from 'react'
 import {
   Check,
   FlipHorizontal2,
@@ -8,8 +8,11 @@ import {
 } from 'lucide-react'
 import type * as THREE from 'three'
 
-import Controls from '@/components/Controls'
 import KeychainCanvas from '@/components/KeychainCanvas'
+
+// The sidebar pulls in the full radix/shadcn control kit; keep it out of the
+// critical path so first paint is faster.
+const Controls = lazy(() => import('@/components/Controls'))
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { exportSTL } from '@/utils/ExportSTL'
@@ -321,26 +324,32 @@ export default function App() {
   return (
     <div className="flex h-screen w-full flex-col overflow-hidden bg-background lg:flex-row">
       <aside className="h-[46vh] w-full shrink-0 border-b border-border/60 lg:h-full lg:w-[392px] lg:border-b-0 lg:border-r">
-        <Controls
-          state={state}
-          onChange={handleChange}
-          onSvgFile={handleSvgFile}
-          onClearSvg={handleClearSvg}
-          svgBodyName={svgBodyName}
-          svgArtworkName={svgArtworkName}
-          svgBodyError={svgBodyError}
-          svgArtworkError={svgArtworkError}
-          pocketSvgName={pocketSvgName}
-          pocketSvgError={pocketSvgError}
-          holeSvgName={holeSvgName}
-          holeSvgError={holeSvgError}
-          artworkError={artworkError}
-          geometryError={geometryError}
-          modelInfo={modelInfo}
-          onExport={handleExport}
-          exportStatus={exportStatus}
-          exportError={exportError}
-        />
+        <Suspense
+          fallback={
+            <div className="p-4 text-xs text-muted-foreground">Loading controls…</div>
+          }
+        >
+          <Controls
+            state={state}
+            onChange={handleChange}
+            onSvgFile={handleSvgFile}
+            onClearSvg={handleClearSvg}
+            svgBodyName={svgBodyName}
+            svgArtworkName={svgArtworkName}
+            svgBodyError={svgBodyError}
+            svgArtworkError={svgArtworkError}
+            pocketSvgName={pocketSvgName}
+            pocketSvgError={pocketSvgError}
+            holeSvgName={holeSvgName}
+            holeSvgError={holeSvgError}
+            artworkError={artworkError}
+            geometryError={geometryError}
+            modelInfo={modelInfo}
+            onExport={handleExport}
+            exportStatus={exportStatus}
+            exportError={exportError}
+          />
+        </Suspense>
       </aside>
 
       <main className="studio-stage relative min-h-0 flex-1 overflow-hidden">
