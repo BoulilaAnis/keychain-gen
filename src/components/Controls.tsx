@@ -952,16 +952,16 @@ export default function Controls({
 
         <p className="text-center text-[10px] leading-relaxed text-muted-foreground/80">
           Built by{' '}
-          <span className="font-medium text-foreground/90">anis boulila</span>
-          {' · '}
           <a
             href="https://anis-boulila.vercel.app"
             target="_blank"
             rel="noreferrer"
-            className="underline-offset-2 hover:underline"
+            className="font-medium text-foreground/90 underline-offset-2 hover:underline"
           >
-            anis-boulila.vercel.app
+            anis boulila
           </a>
+          {' · '}
+          anis-boulila.vercel.app
           {' · '}
           <span className="font-mono">anisBoulila@proton.me</span>
         </p>
