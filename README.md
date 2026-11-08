@@ -3,6 +3,8 @@
 A parametric 3D keychain designer that runs entirely in the browser. Shape a plate, add a
 keyring lug, recess a pocket, engrave artwork on the back, and download a print-ready STL.
 
+Crafted by [anis boulila](https://anis-boulila.vercel.app) · anisBoulila@proton.me
+
 The UI is themed with the [tweakcn](https://tweakcn.com/) **bubblegum** style (dark variant), with
 Poppins for UI text, Lora and Fira Code for artwork, and the pink keychain material `#a87ca0`.
 

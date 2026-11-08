@@ -948,7 +948,7 @@ export default function Controls({
         </Button>
 
         <p className="text-center text-[10px] text-muted-foreground/70 leading-none">
-          craft by{' '}
+          crafted by{' '}
           <a
             href="https://anis-boulila.vercel.app"
             target="_blank"

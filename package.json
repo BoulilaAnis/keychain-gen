@@ -2,6 +2,11 @@
   "name": "keychain-studio",
   "private": true,
   "version": "1.0.0",
+  "author": "anis boulila <anisBoulila@proton.me> (https://anis-boulila.vercel.app)",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:BoulilaAnis/keychain-gen.git"
+  },
   "type": "module",
   "scripts": {
     "dev": "vite",
